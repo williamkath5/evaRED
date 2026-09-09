@@ -1,7 +1,7 @@
 {
   "name": "evared",
   "version": "1.0.0",
-  "description": "Portafolio digital: Modelos de Evaluación de Recursos Educativos Digitales - William Fernando Gómez Silva",
+  "description": "Portafolio digital: Modelos de Evaluación de Recursos Educativos Digitales - William Darío Gómez Vega",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

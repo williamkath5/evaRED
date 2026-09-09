@@ -8,10 +8,10 @@ Entregable 1 de la **Especialización en Aplicación de TIC para la Enseñanza**
 
 ## 👤 Autoría
 
-- **Autor:** William Fernando Gómez Silva
+- **Autor:** William Darío Gómez Vega
 - **Profesora Consultora:** Gloria Cecilia Ríos Muñoz (Ingeniera de Sistemas · Magíster · Doctorante en Educación)
 - **Institución:** Universidad de Santander (UDES) — Campus Virtual CVUDES
-- **Contexto:** Escuela Normal Superior Francisco de Paula Santander (Pamplona, N. de S.) · Grado 9° · Área de Tecnología e Informática
+- **Contexto:** Escuela Normal Superior Francisco de Paula Santander (Málaga, Santander) · Grado 9° · Área de Tecnología e Informática
 - **Núcleo temático:** Programación Orientada a Objetos en Python
 
 ---
