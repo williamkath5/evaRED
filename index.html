@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio académico: Modelos de Evaluación de Recursos Educativos Digitales Aplicados a la Programación Orientada a Objetos. William Fernando Gómez Silva - Especialización en Aplicación de TIC para la Enseñanza, CVUDES - UDES." />
+  <meta name="author" content="William Fernando Gómez Silva" />
+  <title>evaRED · Modelos de Evaluación de Recursos Educativos Digitales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ================= NAVBAR ================= -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="#inicio" class="brand" data-nav="inicio" aria-label="Ir a Inicio">
+        <span class="brand-logo" aria-hidden="true">eva<span>RED</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu" role="menubar">
+        <li role="none"><a role="menuitem" href="#inicio" class="nav-link active" data-nav="inicio">Inicio</a></li>
+        <li role="none" class="has-dropdown">
+          <a role="menuitem" href="#modelos" class="nav-link" data-nav="modelos" aria-haspopup="true" aria-expanded="false">
+            Modelos de Evaluación y RED
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown" role="menu">
+            <li role="none"><a role="menuitem" href="#modelos" class="nav-link" data-nav="modelos">Panorama de Modelos</a></li>
+            <li role="none"><a role="menuitem" href="#seleccion" class="nav-link" data-nav="seleccion">2.1 Seleccionando Modelos</a></li>
+            <li role="none"><a role="menuitem" href="#recursos" class="nav-link" data-nav="recursos">2.2 Recursos Educativos Digitales</a></li>
+          </ul>
+        </li>
+        <li role="none"><a role="menuitem" href="#rediseno" class="nav-link" data-nav="rediseno">Rediseño</a></li>
+        <li role="none"><a role="menuitem" href="#aplicacion" class="nav-link" data-nav="aplicacion">Aplicación</a></li>
+        <li role="none"><a role="menuitem" href="#referencias" class="nav-link" data-nav="referencias">Referencias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= PÁGINA 1: INICIO ================= -->
+    <section id="inicio" class="page active" aria-labelledby="inicio-title">
+      <div class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content container">
+          <span class="badge">Especialización en Aplicación de TIC para la Enseñanza · CVUDES · 2026</span>
+          <h1 id="inicio-title">Modelos de Evaluación de Recursos Educativos Digitales Aplicados a la Programación Orientada a Objetos</h1>
+          <p class="hero-sub">Entregable 1 · Portafolio académico digital de evaluación de calidad de RED en el contexto de la Escuela Normal Superior Francisco de Paula Santander</p>
+          <div class="hero-cta">
+            <a href="#modelos" class="btn btn-primary" data-nav="modelos">Explorar modelos</a>
+            <a href="#aplicacion" class="btn btn-ghost" data-nav="aplicacion">Ver resultados</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z"/></svg>
+            </div>
+            <h3>Autor</h3>
+            <p><strong>William Fernando Gómez Silva</strong></p>
+            <p class="muted">Estudiante · Especialización en Aplicación de TIC para la Enseñanza — CVUDES</p>
+          </article>
+          <article class="info-card">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.8z"/></svg>
+            </div>
+            <h3>Profesora Consultora</h3>
+            <p><strong>Gloria Cecilia Ríos Muñoz</strong></p>
+            <p class="muted">Ingeniera de Sistemas · Magíster · Doctorante en Educación</p>
+          </article>
+          <article class="info-card">
+            <div class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14h-6v-6h-4v6H4z"/></svg>
+            </div>
+            <h3>Institución</h3>
+            <p><strong>Universidad de Santander (UDES)</strong></p>
+            <p class="muted">Campus Virtual CVUDES</p>
+          </article>
+        </div>
+
+        <div class="context-strip">
+          <div><span class="ctx-label">Contexto</span><span>Escuela Normal Superior Francisco de Paula Santander · Pamplona (N. de S.)</span></div>
+          <div><span class="ctx-label">Grado</span><span>9° · Área de Tecnología e Informática</span></div>
+          <div><span class="ctx-label">Núcleo temático</span><span>Programación Orientada a Objetos en Python</span></div>
+        </div>
+
+        <section class="resumen" aria-labelledby="resumen-title">
+          <h2 id="resumen-title">Resumen ejecutivo</h2>
+          <p>Este portafolio digital presenta el proceso de análisis, selección y aplicación de seis modelos de evaluación de calidad de Recursos Educativos Digitales (RED), con énfasis en dos plataformas de aprendizaje de programación (W3Schools Python Tutorial y Codecademy Learn Python 3), en el contexto específico de la Escuela Normal Superior Francisco de Paula Santander, grado 9°, área de Tecnología e Informática, núcleo temático: Programación Orientada a Objetos en Python. Finalmente, se presenta el modelo rediseñado ECO-RED Normalista, adaptado a las condiciones reales del contexto: baja conectividad, equipos heterogéneos y necesidad de protección del menor.</p>
+        </section>
+
+        <h2 class="section-title">Acceso rápido</h2>
+        <div class="quick-grid">
+          <a href="#modelos" class="quick-card" data-nav="modelos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
+            <h4>Modelos de Evaluación y RED</h4>
+            <p>Seis modelos de calidad de RED</p>
+          </a>
+          <a href="#seleccion" class="quick-card" data-nav="seleccion">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.5-1.5z"/></svg>
+            <h4>Seleccionando Modelos</h4>
+            <p>Justificación LORI · COdA · UNE</p>
+          </a>
+          <a href="#recursos" class="quick-card" data-nav="recursos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H4V4zm0 14h16v2H4v-2z"/></svg>
+            <h4>Recursos Educativos Digitales</h4>
+            <p>W3Schools · Codecademy</p>
+          </a>
+          <a href="#rediseno" class="quick-card" data-nav="rediseno">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>
+            <h4>Rediseño ECO-RED</h4>
+            <p>Modelo contextualizado normalista</p>
+          </a>
+          <a href="#aplicacion" class="quick-card" data-nav="aplicacion">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h4v8H3v-8zm7-8h4v16h-4V5zm7 5h4v11h-4V10z"/></svg>
+            <h4>Aplicación de Modelos</h4>
+            <p>Matrices LORI · COdA · UNE</p>
+          </a>
+          <a href="#referencias" class="quick-card" data-nav="referencias">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h13a3 3 0 013 3v15l-4-2-4 2-4-2-4 2V4a1 1 0 011-1z"/></svg>
+            <h4>Referencias Bibliográficas</h4>
+            <p>Normas APA 7.ª ed.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PÁGINA 2: MODELOS ================= -->
+    <section id="modelos" class="page" aria-labelledby="modelos-title">
+      <div class="container">
+        <span class="page-eyebrow">Página 2</span>
+        <h1 id="modelos-title" class="page-title">Modelos de Evaluación y RED</h1>
+        <p class="page-lead">Panorama comparado de seis modelos internacionales de evaluación de la calidad de Recursos Educativos Digitales y del software educativo. Cada tarjeta organiza su descripción, criterios, métrica, metodología e instrumento.</p>
+        <div class="models-grid" id="modelsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= SUBPÁGINA 2.1: SELECCIÓN ================= -->
+    <section id="seleccion" class="page" aria-labelledby="seleccion-title">
+      <div class="container">
+        <span class="page-eyebrow">Subpágina 2.1</span>
+        <h1 id="seleccion-title" class="page-title">Modelos Seleccionados para Evaluación Práctica</h1>
+        <p class="page-lead">Los tres modelos seleccionados complementan dimensiones distintas de la calidad de un RED: <strong>LORI</strong> evalúa la calidad pedagógica y de contenido desde la revisión entre pares; <strong>COdA</strong> integra las dimensiones didáctica y tecnológica desde la perspectiva hispanohablante; y la <strong>Norma UNE 71362:2020</strong> aporta un marco normativo de conformidad técnica. Juntos permiten una evaluación holística de los RED seleccionados, aplicable al contexto educativo de la Escuela Normal Superior Francisco de Paula Santander.</p>
+
+        <h2 class="section-title">Comparativa: Pros y Contras</h2>
+        <div class="proscons-grid">
+          <article class="pc-card">
+            <h3>LORI</h3>
+            <div class="pc-block pros">
+              <h4><span aria-hidden="true">✓</span> Pros</h4>
+              <ul>
+                <li>Ampliamente validado internacionalmente</li>
+                <li>Fácil de aplicar por pares</li>
+                <li>Cubre dimensiones pedagógicas clave</li>
+                <li>Disponible gratuitamente</li>
+              </ul>
+            </div>
+            <div class="pc-block cons">
+              <h4><span aria-hidden="true">✕</span> Contras</h4>
+              <ul>
+                <li>No considera el contexto socioeconómico</li>
+                <li>Escala subjetiva sin métricas objetivas</li>
+                <li>No evalúa dimensión ética ni seguridad</li>
+              </ul>
+            </div>
+          </article>
+          <article class="pc-card">
+            <h3>COdA</h3>
+            <div class="pc-block pros">
+              <h4><span aria-hidden="true">✓</span> Pros</h4>
+              <ul>
+                <li>Diseñado para hispanohablantes</li>
+                <li>Doble dimensión (didáctica + tecnológica)</li>
+                <li>Plantilla Excel oficial</li>
+                <li>Umbral claro de calidad</li>
+              </ul>
+            </div>
+            <div class="pc-block cons">
+              <h4><span aria-hidden="true">✕</span> Contras</h4>
+              <ul>
+                <li>Requiere conocimiento técnico del evaluador</li>
+                <li>No considera conectividad/infraestructura</li>
+                <li>Limitado a objetos de aprendizaje formales</li>
+              </ul>
+            </div>
+          </article>
+          <article class="pc-card">
+            <h3>UNE 71362:2020</h3>
+            <div class="pc-block pros">
+              <h4><span aria-hidden="true">✓</span> Pros</h4>
+              <ul>
+                <li>Marco normativo riguroso</li>
+                <li>Cobertura técnica exhaustiva</li>
+                <li>Incluye metadatos y aspectos legales</li>
+                <li>Referencia para contratos educativos</li>
+              </ul>
+            </div>
+            <div class="pc-block cons">
+              <h4><span aria-hidden="true">✕</span> Contras</h4>
+              <ul>
+                <li>Complejidad de aplicación en contextos informales</li>
+                <li>No ponderada para contextos de bajos recursos</li>
+                <li>Acceso a la norma completa es de pago</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <h2 class="section-title">Video de Sustentación</h2>
+        <div class="video-container">
+          <div class="video-placeholder">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none"/><path d="M10 8l6 4-6 4V8z"/></svg>
+            <p>Video de Sustentación · Máximo 3 minutos</p>
+            <p class="video-hint">Insertar enlace de YouTube aquí</p>
+            <a href="#" class="btn-video" id="btn-video-sustentacion" data-youtube="">▶ Ver Sustentación</a>
+          </div>
+        </div>
+
+        <h2 class="section-title">Guión técnico del video</h2>
+        <div class="script-grid">
+          <article class="script-block">
+            <span class="ts">0:00 – 0:30</span>
+            <h4>Bloque 1 · Presentación y contexto</h4>
+            <p>«Soy William Fernando Gómez Silva, estudiante de la Especialización en TIC para la Enseñanza de la UDES. Este portafolio presenta la evaluación de RED en el contexto de la Escuela Normal Superior Francisco de Paula Santander, grado 9°, área de Tecnología e Informática.»</p>
+          </article>
+          <article class="script-block">
+            <span class="ts">0:30 – 1:30</span>
+            <h4>Bloque 2 · Modelos seleccionados</h4>
+            <p>Presentación de los 3 modelos seleccionados (LORI, COdA, UNE) con sus pros y contras. Uso de pantalla del portafolio como soporte visual.</p>
+          </article>
+          <article class="script-block">
+            <span class="ts">1:30 – 2:30</span>
+            <h4>Bloque 3 · Resultados</h4>
+            <p>«W3Schools obtuvo 85.5% en LORI y 83.8% en COdA; Codecademy obtuvo 91.1% en LORI y 90.6% en COdA. Ambos son recursos de alta calidad, con Codecademy mostrando ventaja en interactividad y retroalimentación.»</p>
+          </article>
+          <article class="script-block">
+            <span class="ts">2:30 – 3:00</span>
+            <h4>Bloque 4 · ECO-RED Normalista</h4>
+            <p>Modelo ECO-RED Normalista: justificación contextual y cierre.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUBPÁGINA 2.2: RECURSOS ================= -->
+    <section id="recursos" class="page" aria-labelledby="recursos-title">
+      <div class="container">
+        <span class="page-eyebrow">Subpágina 2.2</span>
+        <h1 id="recursos-title" class="page-title">Recursos Educativos Digitales</h1>
+        <p class="page-lead">Fichas técnicas de los dos RED evaluados. Haz clic en cada ficha para expandir su información detallada.</p>
+        <div class="red-list" id="redList"></div>
+      </div>
+    </section>
+
+    <!-- ================= PÁGINA 3: REDISEÑO ================= -->
+    <section id="rediseno" class="page" aria-labelledby="rediseno-title">
+      <div class="container">
+        <span class="page-eyebrow">Página 3</span>
+        <h1 id="rediseno-title" class="page-title">ECO-RED Normalista: Modelo de Evaluación Contextualizado</h1>
+        <p class="page-subtitle">Evaluación Contextualizada de Objetos y Recursos Educativos Digitales</p>
+        <div class="justif-box">
+          <h3>Justificación</h3>
+          <p>La Escuela Normal Superior Francisco de Paula Santander de Pamplona (Norte de Santander) presenta condiciones específicas que los modelos internacionales no contemplan: conectividad limitada (zonas rurales sin fibra óptica), equipos de cómputo heterogéneos (Pentium 4 a Core i3), diversidad de necesidades educativas especiales (NEE) en el aula regular, y la obligación ética de proteger a menores de edad en entornos digitales. Por ello, el modelo ECO-RED Normalista integra indicadores de resiliencia tecnológica y ética digital como dimensiones de primer orden.</p>
+        </div>
+
+        <h2 class="section-title">Matriz de dimensiones ponderadas</h2>
+        <div class="eco-matrix" id="ecoMatrix"></div>
+
+        <div class="eco-formula">
+          <h3>Escala de valoración</h3>
+          <p class="scale-line">1 = Muy deficiente · 2 = Deficiente · 3 = Aceptable · 4 = Bueno · 5 = Excelente</p>
+          <h3>Fórmula de puntuación</h3>
+          <p class="formula">ECO-RED = (D1×0.35 + D2×0.25 + D3×0.25 + D4×0.15) × 20 &nbsp;→&nbsp; Escala 20–100 puntos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PÁGINA 4: APLICACIÓN ================= -->
+    <section id="aplicacion" class="page" aria-labelledby="aplicacion-title">
+      <div class="container">
+        <span class="page-eyebrow">Página 4</span>
+        <h1 id="aplicacion-title" class="page-title">Aplicación de Modelos de Evaluación</h1>
+        <p class="page-lead">Resultados reales de la aplicación de las matrices LORI, COdA y UNE 71362:2020 sobre los dos RED evaluados.</p>
+
+        <h2 class="section-title">Matriz LORI <span class="tag">9 criterios · escala 1–5</span></h2>
+        <div class="table-wrap">
+          <table class="eval-table">
+            <thead><tr><th>Criterio</th><th>W3Schools</th><th>Codecademy</th></tr></thead>
+            <tbody>
+              <tr><td>1. Calidad de los contenidos</td><td>5</td><td>5</td></tr>
+              <tr><td>2. Alineación de objetivos</td><td>4</td><td>5</td></tr>
+              <tr><td>3. Retroalimentación y adaptabilidad</td><td>3</td><td>5</td></tr>
+              <tr><td>4. Motivación</td><td>4</td><td>4</td></tr>
+              <tr><td>5. Presentación visual</td><td>5</td><td>5</td></tr>
+              <tr><td>6. Usabilidad de la interacción</td><td>5</td><td>5</td></tr>
+              <tr><td>7. Accesibilidad</td><td>4</td><td>4</td></tr>
+              <tr><td>8. Reusabilidad</td><td>4</td><td>4</td></tr>
+              <tr><td>9. Cumplimiento de estándares</td><td>4.5</td><td>4</td></tr>
+            </tbody>
+            <tfoot><tr><td>TOTAL</td><td>38.5/45 · 85.5%</td><td>41.0/45 · 91.1%</td></tr></tfoot>
+          </table>
+        </div>
+
+        <h2 class="section-title">Matriz COdA <span class="tag">10 criterios · escala 1–5</span></h2>
+        <div class="table-wrap">
+          <table class="eval-table">
+            <thead><tr><th>Criterio</th><th>W3Schools</th><th>Codecademy</th></tr></thead>
+            <tbody>
+              <tr class="dim-row"><td colspan="3">Dimensión Didáctica</td></tr>
+              <tr><td>1. Identificación y datos del recurso</td><td>5</td><td>5</td></tr>
+              <tr><td>2. Aspectos pedagógicos y didácticos</td><td>4</td><td>5</td></tr>
+              <tr><td>3. Calidad y organización del contenido</td><td>5</td><td>5</td></tr>
+              <tr><td>4. Interactividad y navegación</td><td>3</td><td>5</td></tr>
+              <tr><td>5. Competencias y evaluación</td><td>3</td><td>4.5</td></tr>
+              <tr class="dim-row"><td colspan="3">Dimensión Tecnológica</td></tr>
+              <tr><td>6. Accesibilidad</td><td>4</td><td>4.5</td></tr>
+              <tr><td>7. Reusabilidad y adaptabilidad</td><td>4</td><td>4.5</td></tr>
+              <tr><td>8. Interoperabilidad</td><td>4.5</td><td>4</td></tr>
+              <tr><td>9. Metadatos y documentación</td><td>4.4</td><td>4.3</td></tr>
+              <tr><td>10. Derechos de autor y licencias</td><td>5</td><td>4</td></tr>
+            </tbody>
+            <tfoot><tr><td>TOTAL</td><td>41.9/50 · 83.8%</td><td>45.3/50 · 90.6%</td></tr></tfoot>
+          </table>
+        </div>
+
+        <h2 class="section-title">Matriz UNE 71362:2020 <span class="tag">9 dimensiones · % conformidad</span></h2>
+        <div class="table-wrap">
+          <table class="eval-table">
+            <thead><tr><th>Dimensión</th><th>W3Schools</th><th>Codecademy</th></tr></thead>
+            <tbody>
+              <tr><td>1. Eficacia pedagógica</td><td>85%</td><td>90%</td></tr>
+              <tr><td>2. Eficiencia técnica</td><td>90%</td><td>88%</td></tr>
+              <tr><td>3. Usabilidad</td><td>88%</td><td>92%</td></tr>
+              <tr><td>4. Accesibilidad</td><td>82%</td><td>88%</td></tr>
+              <tr><td>5. Portabilidad</td><td>90%</td><td>85%</td></tr>
+              <tr><td>6. Mantenibilidad</td><td>80%</td><td>88%</td></tr>
+              <tr><td>7. Seguridad</td><td>85%</td><td>90%</td></tr>
+              <tr><td>8. Metadatos</td><td>82%</td><td>86%</td></tr>
+              <tr><td>9. Aspectos legales</td><td>85%</td><td>90%</td></tr>
+            </tbody>
+            <tfoot><tr><td>PROMEDIO</td><td>85.3%</td><td>88.8%</td></tr></tfoot>
+          </table>
+        </div>
+
+        <h2 class="section-title">Conclusiones comparativas</h2>
+        <div class="results-bars" id="resultsBars"></div>
+        <div class="sintesis-box">
+          <h3>Síntesis</h3>
+          <p>Codecademy Learn Python 3 supera a W3Schools en las dimensiones pedagógica e interactiva (LORI: +5.6%; COdA: +6.8%), especialmente en retroalimentación y adaptabilidad. W3Schools destaca en accesibilidad básica, portabilidad y compatibilidad con equipos de bajos recursos. Para el contexto de la Escuela Normal Superior Francisco de Paula Santander, W3Schools resulta más pertinente como complemento de aula por su funcionamiento offline, baja demanda de datos y compatibilidad con equipos heterogéneos, mientras que Codecademy es recomendable para actividades en sala de informática con conectividad estable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PÁGINA 5: REFERENCIAS ================= -->
+    <section id="referencias" class="page" aria-labelledby="referencias-title">
+      <div class="container">
+        <span class="page-eyebrow">Página 5</span>
+        <h1 id="referencias-title" class="page-title">Referencias Bibliográficas</h1>
+        <p class="page-lead">Normas APA 7.ª edición · sangría francesa.</p>
+        <ul class="apa-list">
+          <li>Adame, A. (2013). <em>Medios audiovisuales y tecnología educativa</em>. Editorial Síntesis.</li>
+          <li>Boehm, B. W. (1978). <em>Characteristics of software quality</em>. North-Holland Publishing Company.</li>
+          <li>Dájer, M. (2021). <em>Portafolio web: Modelos de evaluación de RED</em>. CVUDES. https://mdajer.wixsite.com/mred</li>
+          <li>Fernández-Pampillón, A., Domínguez, E., &amp; Armas, I. (2012). <em>Herramienta de evaluación de la calidad de objetos de aprendizaje (COdA)</em>. Universidad Complutense de Madrid. http://eprints.ucm.es/12533/1/COdAv1_1_07jul2012.pdf</li>
+          <li>Grady, R. B., &amp; Caswell, D. L. (1987). <em>Software metrics: Establishing a company-wide program</em>. Prentice Hall.</li>
+          <li>McCall, J. A., Richards, P. K., &amp; Walters, G. F. (1977). <em>Factors in software quality</em>. National Technical Information Service.</li>
+          <li>Ministerio de Educación Nacional de Colombia. (2013). <em>Competencias TIC para el desarrollo profesional docente</em>. MEN. https://www.mineducacion.gov.co/1759/articles-339097_archivo_pdf_competencias_tic.pdf</li>
+          <li>Nesbit, J., Belfer, K., &amp; Leacock, T. (2002). <em>Learning object review instrument (LORI)</em>. E-learning Research and Assessment Network.</li>
+          <li>Norma UNE 71362. (2020). <em>Calidad de los materiales educativos digitales</em>. AENOR. https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=N0063153</li>
+          <li>Pinto, M., Gómez-Camarero, C., &amp; Fernández-Ramos, A. (2012). Los recursos educativos electrónicos: perspectivas y herramientas de evaluación. <em>Perspectivas em Ciência da Informação, 17</em>(3), 82-99. https://www.scielo.br/pdf/pci/v17n3/a07v17n3</li>
+          <li>Rey, J. (2015). <em>Revisión de modelos para evaluación de software educativos</em>. Dialnet. https://dialnet.unirioja.es/descarga/articulo/2954394.pdf</li>
+          <li>Sanz, C., Barranquero, F., &amp; Prósperi, S. (2014). <em>Análisis de herramientas de autor para el desarrollo de objetos de aprendizaje</em>. Universidad Nacional de La Plata.</li>
+          <li>W3Schools. (2024). <em>Python classes and objects</em>. Refsnes Data. https://www.w3schools.com/python/python_classes.asp</li>
+          <li>Codecademy. (2024). <em>Learn Python 3: Object-oriented programming</em>. Codecademy Inc. https://www.codecademy.com/learn/learn-python-3</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="brand-logo" aria-hidden="true">eva<span>RED</span></span>
+        <p>Modelos de Evaluación de Recursos Educativos Digitales Aplicados a la Programación Orientada a Objetos</p>
+      </div>
+      <div class="footer-meta">
+        <p><strong>William Fernando Gómez Silva</strong></p>
+        <p>Especialización en Aplicación de TIC para la Enseñanza · CVUDES</p>
+        <p>Universidad de Santander (UDES) · 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
