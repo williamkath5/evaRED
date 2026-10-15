@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rediseño del modelo — ECO-RED Normalista | Portafolio William Darío Gómez Vega</title>
+  <style>
+    :root {
+      --azul:    #1a3a5c;
+      --azul2:   #2563a8;
+      --verde:   #1d6a40;
+      --verde2:  #2e8b57;
+      --gris:    #f4f6f9;
+      --gris2:   #e8ecf2;
+      --borde:   #d1d9e6;
+      --texto:   #1e1e1e;
+      --nota:    #5a6373;
+      --amarillo:#fdf3cc;
+      --rojo:    #7a1c1c;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--texto);
+      background: #f0f4f8;
+    }
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #0d2240 0%, var(--azul) 55%, var(--azul2) 100%);
+      color: #fff;
+      padding: 52px 32px 40px;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      padding: 4px 20px;
+      font-size: 11.5px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      margin-bottom: 18px;
+    }
+    header h1 {
+      font-size: 2.1rem;
+      font-weight: bold;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    header .subtitle {
+      font-size: 1.05rem;
+      opacity: 0.88;
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    /* ── Layout ── */
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin: 28px 0;
+      padding: 28px 30px;
+    }
+    /* ── Títulos de sección ── */
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gris2);
+    }
+    .sec-num {
+      background: var(--azul);
+      color: #fff;
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .sec-title {
+      font-size: 1.2rem;
+      color: var(--azul);
+      font-weight: bold;
+    }
+    h3 { font-size: 1.05rem; color: var(--verde); margin: 1.4rem 0 0.5rem; font-family: Arial, sans-serif; }
+    h4 { font-size: 0.97rem; color: var(--azul2); margin: 1rem 0 0.35rem; font-family: Arial, sans-serif; }
+    p  { margin-bottom: 0.85rem; text-align: justify; }
+    ul, ol { margin: 0.4rem 0 0.9rem 1.5rem; }
+    li { margin-bottom: 0.3rem; }
+    /* ── Ficha del modelo ── */
+    .model-card {
+      background: linear-gradient(135deg, #e8f0f9 0%, #f0f7ff 100%);
+      border: 2px solid var(--azul2);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin-bottom: 20px;
+    }
+    .model-card h2 {
+      font-size: 1.35rem;
+      color: var(--azul);
+      margin-bottom: 4px;
+    }
+    .model-card .acronym {
+      font-size: 0.93rem;
+      color: var(--nota);
+      font-family: Arial, sans-serif;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 0.91rem;
+    }
+    .meta-item { display: flex; gap: 8px; }
+    .meta-label { font-weight: bold; color: var(--azul); min-width: 130px; }
+    /* ── Cards referentes ── */
+    .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 12px; }
+    .ref-card {
+      border: 1px solid var(--borde);
+      border-radius: 7px;
+      padding: 16px 18px;
+      background: var(--gris);
+    }
+    .ref-card h4 { color: var(--azul); margin-top: 0; }
+    .ref-card .tag {
+      display: inline-block;
+      background: var(--azul2);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-family: Arial, sans-serif;
+      margin-bottom: 8px;
+    }
+    /* ── Limitaciones ── */
+    .limit-card {
+      border-left: 4px solid var(--azul2);
+      background: var(--gris);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .limit-card .lnum {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: var(--azul2);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .limit-card strong { color: var(--azul); }
+    /* ── Dimensiones tabla ── */
+    .dim-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 10px 0 6px;
+    }
+    .dim-table th {
+      background: var(--azul);
+      color: #fff;
+      padding: 9px 11px;
+      text-align: left;
+      font-family: Arial, sans-serif;
+    }
+    .dim-table td {
+      padding: 8px 11px;
+      border-bottom: 1px solid var(--borde);
+      vertical-align: top;
+    }
+    .dim-table tr:nth-child(even) td { background: #f8f9fc; }
+    .dim-badge {
+      display: inline-block;
+      border-radius: 10px;
+      padding: 2px 9px;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    .d1 { background: #1d6a40; }
+    .d2 { background: #2563a8; }
+    .d3 { background: #7b4f00; }
+    .d4 { background: #6a1c2e; }
+    .peso-badge {
+      display: inline-block;
+      background: var(--gris2);
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 1px 8px;
+      font-size: 0.79rem;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: var(--azul);
+    }
+    /* ── Escala ── */
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 10px 0;
+    }
+    .scale-table th {
+      background: var(--azul);
+      color: #fff;
+      padding: 9px 11px;
+      text-align: left;
+      font-family: Arial, sans-serif;
+    }
+    .scale-table td { padding: 8px 11px; border-bottom: 1px solid var(--borde); vertical-align: top; }
+    .nivel-5 { color: #1a6630; font-weight: bold; }
+    .nivel-4 { color: #2a7a40; font-weight: bold; }
+    .nivel-3 { color: #7a6a00; font-weight: bold; }
+    .nivel-2 { color: #cc6000; font-weight: bold; }
+    .nivel-1 { color: #cc2000; font-weight: bold; }
+    /* ── Formula box ── */
+    .formula-box {
+      background: #e8f0f9;
+      border: 2px solid var(--azul2);
+      border-radius: 7px;
+      padding: 18px 22px;
+      margin: 16px 0;
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      font-size: 1.05rem;
+      color: var(--azul);
+      font-weight: bold;
+    }
+    .rango-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 10px 0;
+    }
+    .rango-table th { background: var(--azul); color: #fff; padding: 8px 11px; font-family: Arial, sans-serif; text-align: left; }
+    .rango-table td { padding: 7px 11px; border-bottom: 1px solid var(--borde); }
+    .rango-alta { background: #d4edda; }
+    .rango-buena { background: #d1ecf1; }
+    .rango-cond { background: #fff3cd; }
+    .rango-no   { background: #fde2c0; }
+    .rango-inad { background: #f8d7da; }
+    /* ── Acordeón instrumento ── */
+    .accordion { margin: 12px 0; border: 1px solid var(--borde); border-radius: 7px; overflow: hidden; }
+    .acc-header {
+      width: 100%;
+      background: var(--gris2);
+      border: none;
+      padding: 13px 18px;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.97rem;
+      font-weight: bold;
+      color: var(--azul);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .acc-header:hover { background: #d5dfee; }
+    .acc-header .arrow { transition: transform 0.25s; }
+    .acc-header.open .arrow { transform: rotate(180deg); }
+    .acc-body { display: none; padding: 18px 20px; border-top: 1px solid var(--borde); }
+    .acc-body.open { display: block; }
+    .ind-card {
+      border: 1px solid var(--borde);
+      border-radius: 6px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .ind-header {
+      background: var(--azul);
+      color: #fff;
+      padding: 10px 14px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 0.93rem;
+    }
+    .ind-body { padding: 12px 14px; }
+    .desc-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .desc-table th { background: var(--gris2); padding: 7px 10px; text-align: left; font-family: Arial, sans-serif; border-bottom: 2px solid var(--borde); }
+    .desc-table td { padding: 7px 10px; border-bottom: 1px solid var(--borde); vertical-align: top; }
+    .desc-table tr:last-child td { border-bottom: none; }
+    .n5 { color: #1a6630; font-weight: bold; text-align: center; }
+    .n4 { color: #2a7a40; font-weight: bold; text-align: center; }
+    .n3 { color: #7a6a00; font-weight: bold; text-align: center; }
+    .n2 { color: #cc6000; font-weight: bold; text-align: center; }
+    .n1 { color: #cc2000; font-weight: bold; text-align: center; }
+    /* ── Pasos metodología ── */
+    .steps { counter-reset: step; margin: 10px 0; }
+    .step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      background: var(--azul);
+      color: #fff;
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-body strong { color: var(--azul); font-family: Arial, sans-serif; }
+    /* ── Alerta ── */
+    .alert-box {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-left: 5px solid #e65100;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+    /* ── Referencias ── */
+    .ref-list { list-style: none; margin: 0; padding: 0; }
+    .ref-list li {
+      padding-left: 2rem;
+      text-indent: -2rem;
+      margin-bottom: 0.75rem;
+      text-align: justify;
+      font-size: 0.93rem;
+    }
+    /* ── Footer ── */
+    footer {
+      background: var(--azul);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+    }
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.5rem; }
+      .ref-grid, .meta-grid { grid-template-columns: 1fr; }
+      section { padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Entregable 2 · CVUDES 2026 · Rediseño del Modelo</div>
+  <h1>ECO-RED Normalista</h1>
+  <p class="subtitle">Evaluación Contextualizada de Objetos y Recursos Educativos Digitales para Escuelas Normales · Propuesta de rediseño del modelo de evaluación de calidad de RED</p>
+</header>
+
+<main>
+
+<!-- BLOQUE 1: TÍTULO DEL MODELO -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">1</div>
+    <div class="sec-title">Título del modelo</div>
+  </div>
+  <div class="model-card">
+    <h2>ECO-RED Normalista</h2>
+    <p class="acronym">Evaluación Contextualizada de Objetos y Recursos Educativos Digitales para Escuelas Normales Superiores de Colombia</p>
+    <div class="meta-grid">
+      <div class="meta-item"><span class="meta-label">Autor:</span> William Darío Gómez Vega</div>
+      <div class="meta-item"><span class="meta-label">Docente:</span> Gloria Cecilia Ríos Muñoz</div>
+      <div class="meta-item"><span class="meta-label">Institución:</span> Universidad de Santander (UDES) — CVUDES</div>
+      <div class="meta-item"><span class="meta-label">Módulo:</span> Evaluación de Recursos Educativos Digitales</div>
+      <div class="meta-item"><span class="meta-label">Especialización:</span> Aplicación de TIC para la Enseñanza</div>
+      <div class="meta-item"><span class="meta-label">Entregable:</span> 2 — Informe de implementación</div>
+      <div class="meta-item"><span class="meta-label">Institución vinculada:</span> ENS Francisco de Paula Santander, Málaga, Santander</div>
+      <div class="meta-item"><span class="meta-label">Nivel / Área:</span> Grado 9.°, Tecnología e Informática (Python OOP)</div>
+      <div class="meta-item"><span class="meta-label">Objeto de evaluación:</span> Recursos educativos digitales para la enseñanza de programación en Python orientada a objetos</div>
+      <div class="meta-item"><span class="meta-label">Fecha:</span> Octubre de 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOQUE 2: REFERENTES -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">2</div>
+    <div class="sec-title">Referentes — Modelos utilizados como base</div>
+  </div>
+  <p>El modelo ECO-RED Normalista toma como referentes dos instrumentos de probada aplicación en la evaluación de objetos de aprendizaje digitales:</p>
+  <div class="ref-grid">
+    <div class="ref-card">
+      <span class="tag">Modelo 1</span>
+      <h4>LORI — Learning Object Review Instrument</h4>
+      <p><strong>Autores:</strong> Nesbit, J. C., Belfer, K. &amp; Leacock, T. (2003)</p>
+      <p><strong>Origen:</strong> E-Learning Research and Assessment Network (eLera), Canadá</p>
+      <p><strong>Criterios:</strong> 9 — Calidad de contenidos · Alineación de objetivos · Retroalimentación y adaptabilidad · Motivación · Diseño de presentación · Usabilidad de interacción · Accesibilidad · Reusabilidad · Cumplimiento de estándares</p>
+      <p><strong>Escala:</strong> Likert 1–5 (evaluación individual o participación convergente)</p>
+      <p><a href="https://www.academia.edu/7927907/" target="_blank" style="color:var(--azul2);font-size:0.85rem;">Ver instrumento LORI</a></p>
+    </div>
+    <div class="ref-card">
+      <span class="tag">Modelo 2</span>
+      <h4>COdA — Calidad de Objetos de Aprendizaje</h4>
+      <p><strong>Autores:</strong> Fernández-Pampillón Cesteros, A. M., Domínguez Romero, E. &amp; De Armas Ranero, I. (2011)</p>
+      <p><strong>Origen:</strong> Proyecto de innovación docente, Universidad Complutense de Madrid (UCM)</p>
+      <p><strong>Criterios:</strong> 10 — 5 didácticos (objetivos y coherencia, calidad de contenidos, reflexión/crítica/innovación, interactividad/adaptabilidad, motivación) + 5 tecnológicos (formato y diseño, usabilidad, accesibilidad, reusabilidad, interoperabilidad)</p>
+      <p><strong>Escala:</strong> 1–5; permite marcar criterios como No Aplicable (NA)</p>
+      <p><a href="https://eprints.ucm.es/12533/" target="_blank" style="color:var(--azul2);font-size:0.85rem;">Ver instrumento COdA</a></p>
+    </div>
+  </div>
+  <div class="alert-box">
+    <strong>Fundamento del rediseño:</strong> La aplicación de LORI y COdA en el Entregable 1 (W3Schools: LORI 85,6 % / COdA 83,8 %; Codecademy: LORI 90,7 % / COdA 89,0 %) reveló que ambos modelos, aunque válidos a nivel técnico, presentan limitaciones cuando se aplican al contexto específico de una Escuela Normal Superior de municipio intermedio en Colombia. Dichas limitaciones motivaron el rediseño que se presenta en este documento.
+  </div>
+</section>
+
+<!-- BLOQUE 3: PROBLEMÁTICA -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">3</div>
+    <div class="sec-title">Problemática motivadora — Problema y justificación</div>
+  </div>
+  <p>La evaluación de RED realizada en el Entregable 1 —usando LORI y COdA sobre W3Schools Python Tutorial y Codecademy Learn Python 3— expuso <strong>seis limitaciones metodológicas</strong> de los instrumentos aplicados en el contexto específico de la ENS Francisco de Paula Santander:</p>
+
+  <div class="limit-card">
+    <div class="lnum">Limitación 1</div>
+    <strong>Ausencia de criterios de resiliencia tecnológica contextual</strong>
+    <p>Ni LORI ni COdA incluyen indicadores explícitos para evaluar el funcionamiento del recurso en condiciones de conectividad limitada o inestable, situación recurrente en Málaga, Santander. La accesibilidad que ambos modelos consideran se refiere exclusivamente a la accesibilidad para personas con discapacidad (WCAG), no a la disponibilidad técnica bajo infraestructura educativa deficitaria.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lnum">Limitación 2</div>
+    <strong>Criterio de cumplimiento de estándares de difícil aplicación docente</strong>
+    <p>El criterio 9 de LORI (Cumplimiento de estándares) exige verificar la conformidad con IEEE LOM, SCORM o IMS. Esta verificación requiere conocimiento técnico especializado que la mayoría de los docentes de básica secundaria no poseen. El criterio produce puntuaciones cuya solidez es cuestionable cuando el evaluador es un docente en ejercicio, no un técnico.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lnum">Limitación 3</div>
+    <strong>Ausencia de criterios de ética, privacidad y condiciones de acceso para menores</strong>
+    <p>Ninguno de los dos modelos incluye indicadores para evaluar si el recurso requiere registro de menores, qué datos recopila, cuáles son las condiciones de privacidad aplicables o si el contenido evaluado es genuinamente gratuito. Esta dimensión adquiere especial relevancia en una institución de educación formal que trabaja con estudiantes menores de edad.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lnum">Limitación 4</div>
+    <strong>Escala sin descriptores operativos por nivel</strong>
+    <p>Los instrumentos LORI y COdA definen criterios en términos conceptuales, pero no proporcionan descriptores específicos para cada nivel (1 a 5). Esta omisión genera ambigüedad en la asignación de puntuaciones, como lo evidenció el uso de decimales en el Entregable 1 (p. ej., 3,2 en retroalimentación para W3Schools), cuya metodología de cálculo no está claramente especificada.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lnum">Limitación 5</div>
+    <strong>Falta de contextualización curricular explícita</strong>
+    <p>Ambos modelos evalúan la alineación de objetivos de manera genérica. Para el contexto de grado 9.° en la ENS Francisco de Paula Santander resulta necesario verificar la coherencia con las Orientaciones Curriculares para el Área de Tecnología e Informática del MEN (2008) y con los propósitos específicos de la enseñanza de programación orientada a objetos en Python.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lnum">Limitación 6</div>
+    <strong>Distinción insuficiente entre tipos de reusabilidad</strong>
+    <p>El criterio de reusabilidad en LORI y COdA trata como equivalentes la reusabilidad pedagógica (aplicar en contextos diferentes), la técnica (exportar o descargar contenidos) y la legal (licencias abiertas). Estas tres dimensiones tienen implicaciones completamente distintas para la práctica docente y requieren evaluación separada.</p>
+  </div>
+</section>
+
+<!-- BLOQUE 4: DESCRIPCIÓN DEL MODELO -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">4</div>
+    <div class="sec-title">Descripción del modelo ECO-RED Normalista</div>
+  </div>
+  <p><strong>ECO-RED Normalista</strong> es un modelo de evaluación de RED diseñado para ser aplicado por docentes de Tecnología e Informática en Escuelas Normales Superiores de Colombia. Su diseño parte de las fortalezas reconocidas en LORI y COdA, pero incorpora dimensiones ausentes en dichos modelos que resultan críticas en el contexto institucional particular: <em>resiliencia tecnológica, condiciones de acceso real, privacidad de menores y alineación curricular específica</em>.</p>
+  <p>El modelo responde a los principios de evaluación auténtica contextualizada (García-Barrera, 2016), según los cuales los instrumentos de evaluación de calidad educativa deben ser sensibles al entorno real de implementación, no solo a estándares técnicos generales. Asimismo, incorpora la distinción de Wiley (2000) entre los diferentes tipos de reusabilidad de los objetos de aprendizaje, frecuentemente colapsados en un solo criterio en los modelos clásicos.</p>
+  <h3>Fundamento de las ponderaciones dimensionales</h3>
+  <ul>
+    <li><strong>Pedagógica y Didáctica (35 %):</strong> El propósito fundamental de un RED es apoyar el aprendizaje; si un recurso falla en lo pedagógico, ninguna virtud técnica lo compensa.</li>
+    <li><strong>Tecnológica y de Usabilidad (25 %) y Resiliencia (25 %):</strong> En el contexto colombiano rural, la solidez tecnológica y la disponibilidad bajo condiciones reales de conectividad tienen consecuencias equivalentes para la práctica docente.</li>
+    <li><strong>Ética, Seguridad y Transparencia (15 %):</strong> Sus criterios son frecuentemente de tipo binario (cumple/no cumple) y, cuando hay un incumplimiento grave en privacidad o acceso, el indicador puede actuar como criterio de descalificación independiente del puntaje total.</li>
+  </ul>
+</section>
+
+<!-- BLOQUE 5: CRITERIOS DE EVALUACIÓN -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">5</div>
+    <div class="sec-title">Criterios de evaluación — Estructura del modelo</div>
+  </div>
+  <p>El modelo se organiza en <strong>4 dimensiones con 3 indicadores cada una</strong>, para un total de 12 indicadores ponderados:</p>
+  <table class="dim-table">
+    <thead>
+      <tr>
+        <th>Dimensión</th>
+        <th>Peso</th>
+        <th>Código</th>
+        <th>Indicador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="3"><span class="dim-badge d1">D1 — Pedagógica y Didáctica</span></td><td rowspan="3" style="text-align:center;font-weight:bold;color:#1d6a40;">35 %</td><td>I.1.1</td><td>Coherencia curricular y alineación de objetivos de aprendizaje de Python (grado 9.°, ENS)</td></tr>
+      <tr><td>I.1.2</td><td>Desarrollo del pensamiento computacional: descomposición, abstracción, reconocimiento de patrones y diseño algorítmico</td></tr>
+      <tr><td>I.1.3</td><td>Andamiaje pedagógico, graduación de la dificultad y calidad de la retroalimentación</td></tr>
+      <tr><td rowspan="3"><span class="dim-badge d2">D2 — Tecnológica y de Usabilidad</span></td><td rowspan="3" style="text-align:center;font-weight:bold;color:#2563a8;">25 %</td><td>I.2.1</td><td>Diseño de interfaz, legibilidad tipográfica y navegación</td></tr>
+      <tr><td>I.2.2</td><td>Reusabilidad pedagógica y modularidad del contenido</td></tr>
+      <tr><td>I.2.3</td><td>Rendimiento técnico, estabilidad y fiabilidad del sistema</td></tr>
+      <tr><td rowspan="3"><span class="dim-badge d3">D3 — Resiliencia y Adaptación al Contexto</span></td><td rowspan="3" style="text-align:center;font-weight:bold;color:#7b4f00;">25 %</td><td>I.3.1</td><td>Dependencia de la conexión a internet y disponibilidad de alternativas de acceso</td></tr>
+      <tr><td>I.3.2</td><td>Requisitos técnicos del dispositivo y consumo de recursos de hardware</td></tr>
+      <tr><td>I.3.3</td><td>Compatibilidad verificada con el parque tecnológico de la institución</td></tr>
+      <tr><td rowspan="3"><span class="dim-badge d4">D4 — Ética, Seguridad y Transparencia</span></td><td rowspan="3" style="text-align:center;font-weight:bold;color:#6a1c2e;">15 %</td><td>I.4.1</td><td>Condiciones de acceso real y gratuidad del contenido evaluado</td></tr>
+      <tr><td>I.4.2</td><td>Privacidad de menores, política de datos y requisitos de registro</td></tr>
+      <tr><td>I.4.3</td><td>Transparencia editorial, publicidad y credibilidad institucional del recurso</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- BLOQUE 6: MÉTRICA -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">6</div>
+    <div class="sec-title">Métrica o escala de valoración</div>
+  </div>
+  <p>La escala opera de <strong>1 a 5</strong> con <em>puntuaciones enteras obligatorias</em>. Las puntuaciones decimales no son válidas en este instrumento; si el evaluador duda entre dos niveles, debe seleccionar el inferior y justificarlo en el campo de evidencias.</p>
+  <table class="scale-table">
+    <thead><tr><th>Nivel</th><th>Denominación</th><th>Descripción general</th></tr></thead>
+    <tbody>
+      <tr><td class="nivel-5">5</td><td class="nivel-5">Excelente</td><td>El criterio se cumple plena y ejemplarmente; constituye un referente de calidad para este aspecto.</td></tr>
+      <tr><td class="nivel-4">4</td><td class="nivel-4">Sobresaliente</td><td>El criterio se cumple de manera sólida con solo aspectos menores susceptibles de mejora.</td></tr>
+      <tr><td class="nivel-3">3</td><td class="nivel-3">Básico</td><td>El criterio se cumple en sus aspectos fundamentales, aunque con limitaciones concretas identificables y documentadas.</td></tr>
+      <tr><td class="nivel-2">2</td><td class="nivel-2">En desarrollo</td><td>El criterio se aborda de manera parcial, con omisiones significativas que limitan considerablemente la efectividad del recurso.</td></tr>
+      <tr><td class="nivel-1">1</td><td class="nivel-1">Deficiente</td><td>El criterio está ausente o presenta fallas tan graves que comprometen la utilidad del recurso para el propósito evaluado.</td></tr>
+    </tbody>
+  </table>
+  <h3>Fórmula de puntuación ponderada</h3>
+  <div class="formula-box">
+    Puntuación ECO-RED = (Promedio_D1 × 0,35) + (Promedio_D2 × 0,25) + (Promedio_D3 × 0,25) + (Promedio_D4 × 0,15)
+  </div>
+  <p style="font-size:0.9rem;color:var(--nota);">Donde <em>Promedio_Dn</em> = suma de puntuaciones de los indicadores de la dimensión n ÷ número de indicadores aplicables (no NA).</p>
+  <h3>Rangos de interpretación</h3>
+  <table class="rango-table">
+    <thead><tr><th>Rango</th><th>Porcentaje</th><th>Interpretación</th></tr></thead>
+    <tbody>
+      <tr class="rango-alta"><td><strong>4,50 – 5,00</strong></td><td>90 – 100 %</td><td>Recurso altamente recomendable para el contexto evaluado.</td></tr>
+      <tr class="rango-buena"><td><strong>3,50 – 4,49</strong></td><td>70 – 89,8 %</td><td>Recurso recomendable con condiciones o restricciones documentadas.</td></tr>
+      <tr class="rango-cond"><td><strong>2,50 – 3,49</strong></td><td>50 – 69,8 %</td><td>Recurso condicionalmente útil; su uso requiere adaptaciones docentes significativas.</td></tr>
+      <tr class="rango-no"><td><strong>1,50 – 2,49</strong></td><td>30 – 49,8 %</td><td>Recurso de uso no recomendado sin ajustes estructurales.</td></tr>
+      <tr class="rango-inad"><td><strong>1,00 – 1,49</strong></td><td>0 – 29,8 %</td><td>Recurso inadecuado para el contexto evaluado.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- BLOQUE 7: INSTRUMENTO COMPLETO -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">7</div>
+    <div class="sec-title">Instrumento completo — Descriptores operativos por indicador</div>
+  </div>
+  <p>A continuación se presentan los <strong>12 indicadores</strong> con sus descriptores operativos para cada nivel (5 al 1). Seleccione la dimensión para expandir sus indicadores.</p>
+
+  <!-- D1 -->
+  <div class="accordion">
+    <button class="acc-header" onclick="toggleAcc(this)">
+      <span><span class="dim-badge d1" style="margin-right:8px;">D1</span> Pedagógica y Didáctica — Peso: 35 %</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body open">
+      <!-- I.1.1 -->
+      <div class="ind-card">
+        <div class="ind-header" style="background:#1d6a40;">I.1.1 — Coherencia curricular y alineación de objetivos de aprendizaje de Python (grado 9.°, ENS)</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>Los objetivos del recurso coinciden explícita y completamente con los propósitos de aprendizaje de Python OOP (grado 9.° ENS); los contenidos están secuenciados de acuerdo con una progresión didáctica coherente y la cobertura temática es total respecto al alcance evaluado.</td></tr>
+              <tr><td class="n4">4</td><td>Los objetivos coinciden con los propósitos curriculares en su mayor parte; hay algún desajuste menor en la secuencia o en la cobertura que no afecta el aprendizaje central.</td></tr>
+              <tr><td class="n3">3</td><td>Los objetivos son compatibles con los propósitos curriculares pero no están explícitamente formulados para el nivel o contexto; la secuencia es parcialmente coherente.</td></tr>
+              <tr><td class="n2">2</td><td>Los objetivos son genéricos y requieren adaptación significativa para ser pertinentes para grado 9.° ENS; la cobertura temática es parcial.</td></tr>
+              <tr><td class="n1">1</td><td>No hay objetivos explícitos o estos son incongruentes con el aprendizaje de Python OOP en grado 9.°.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- I.1.2 -->
+      <div class="ind-card">
+        <div class="ind-header" style="background:#1d6a40;">I.1.2 — Desarrollo del pensamiento computacional</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>El recurso promueve explícitamente las cuatro habilidades del pensamiento computacional (descomposición, abstracción, reconocimiento de patrones, diseño algorítmico) mediante actividades concretas y verificables.</td></tr>
+              <tr><td class="n4">4</td><td>El recurso promueve al menos tres de las cuatro habilidades de manera explícita; la cuarta aparece implícitamente.</td></tr>
+              <tr><td class="n3">3</td><td>El recurso promueve principalmente la comprensión conceptual y la replicación de código; el pensamiento computacional se desarrolla de manera incidental.</td></tr>
+              <tr><td class="n2">2</td><td>El recurso se limita a presentar información; las actividades, si las hay, son de nivel memorístico o de repetición mecánica.</td></tr>
+              <tr><td class="n1">1</td><td>El recurso no incluye actividades; es exclusivamente un repositorio de referencia sin propósito formativo explícito.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- I.1.3 -->
+      <div class="ind-card">
+        <div class="ind-header" style="background:#1d6a40;">I.1.3 — Andamiaje pedagógico, graduación de la dificultad y calidad de la retroalimentación</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>La dificultad aumenta gradualmente con transiciones claras; la retroalimentación es inmediata, específica, adaptativa y orientada a la comprensión (no solo a la corrección de errores).</td></tr>
+              <tr><td class="n4">4</td><td>La dificultad progresa de manera generalmente adecuada; la retroalimentación es inmediata y útil, aunque no completamente adaptativa.</td></tr>
+              <tr><td class="n3">3</td><td>Existe cierta gradualidad en la dificultad; la retroalimentación se limita a indicar si la respuesta es correcta o incorrecta, sin orientación sobre por qué o cómo corregir.</td></tr>
+              <tr><td class="n2">2</td><td>La dificultad no progresa de manera planificada; la retroalimentación es mínima o ausente.</td></tr>
+              <tr><td class="n1">1</td><td>No hay gradualidad ni retroalimentación de ningún tipo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D2 -->
+  <div class="accordion">
+    <button class="acc-header" onclick="toggleAcc(this)">
+      <span><span class="dim-badge d2" style="margin-right:8px;">D2</span> Tecnológica y de Usabilidad — Peso: 25 %</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body open">
+      <div class="ind-card">
+        <div class="ind-header" style="background:#2563a8;">I.2.1 — Diseño de interfaz, legibilidad tipográfica y navegación</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>La interfaz es limpia, sin elementos distractores; la tipografía es legible (fuente adecuada, contraste suficiente, tamaño apropiado); la navegación es intuitiva, predecible y no requiere aprendizaje previo.</td></tr>
+              <tr><td class="n4">4</td><td>La interfaz es clara con algún elemento menor que puede distraer; la legibilidad es buena; la navegación es sencilla con alguna excepción puntual.</td></tr>
+              <tr><td class="n3">3</td><td>La interfaz es funcional pero contiene elementos que pueden generar carga cognitiva no deseada; la tipografía es aceptable; la navegación requiere algún aprendizaje inicial.</td></tr>
+              <tr><td class="n2">2</td><td>La interfaz presenta problemas evidentes de organización o densidad visual; la legibilidad está comprometida; la navegación no es intuitiva.</td></tr>
+              <tr><td class="n1">1</td><td>La interfaz es confusa o inaccesible; la legibilidad es deficiente; la navegación es difícil de aprender o inconsistente.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-header" style="background:#2563a8;">I.2.2 — Reusabilidad pedagógica y modularidad del contenido</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>Los contenidos están organizados en módulos independientes que pueden emplearse de forma selectiva en distintos contextos sin depender de los demás módulos; el docente puede referenciar secciones específicas sin recorrer el recurso completo.</td></tr>
+              <tr><td class="n4">4</td><td>La mayoría de los módulos son independientes; alguno requiere acceder a contenidos previos del mismo recurso.</td></tr>
+              <tr><td class="n3">3</td><td>El recurso puede usarse selectivamente, pero la estructura sugiere un recorrido lineal y el uso modular requiere adaptación por parte del docente.</td></tr>
+              <tr><td class="n2">2</td><td>El contenido está integrado de forma que dificulta el uso parcial; la plataforma no permite acceder a secciones específicas de manera directa.</td></tr>
+              <tr><td class="n1">1</td><td>El contenido solo puede usarse en la secuencia impuesta por la plataforma; no es posible ningún uso modular.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-header" style="background:#2563a8;">I.2.3 — Rendimiento técnico, estabilidad y fiabilidad del sistema</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>El recurso carga de manera rápida y consistente (menos de 3 segundos en condiciones estándar); las funcionalidades interactivas operan sin errores; no se han registrado caídas del servicio durante el período de evaluación.</td></tr>
+              <tr><td class="n4">4</td><td>El recurso carga con tiempos aceptables; las funcionalidades interactivas presentan fallos esporádicos no recurrentes.</td></tr>
+              <tr><td class="n3">3</td><td>El recurso carga con demoras notables pero dentro de lo tolerable; se presentan fallos ocasionales en funcionalidades interactivas.</td></tr>
+              <tr><td class="n2">2</td><td>El recurso presenta tiempos de carga prolongados o fallos frecuentes que afectan la experiencia de uso.</td></tr>
+              <tr><td class="n1">1</td><td>El recurso es inestable, con caídas frecuentes o funcionalidades que no operan.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D3 -->
+  <div class="accordion">
+    <button class="acc-header" onclick="toggleAcc(this)">
+      <span><span class="dim-badge d3" style="margin-right:8px;">D3</span> Resiliencia y Adaptación al Contexto — Peso: 25 %</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body open">
+      <div class="ind-card">
+        <div class="ind-header" style="background:#7b4f00;">I.3.1 — Dependencia de la conexión a internet y alternativas de acceso</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>El recurso ofrece una versión descargable o funciona completamente sin conexión; o bien los contenidos son suficientemente ligeros para cargarse con conexiones de baja velocidad (&lt; 1 Mbps) sin pérdida significativa de funcionalidad.</td></tr>
+              <tr><td class="n4">4</td><td>El recurso requiere conexión, pero los contenidos son ligeros y accesibles en condiciones de baja velocidad; el docente puede prever estrategias de uso fuera de línea (guardar páginas en el navegador).</td></tr>
+              <tr><td class="n3">3</td><td>El recurso requiere conexión estable; funciona en conexiones moderadas (1–5 Mbps) pero no en conexiones lentas o intermitentes.</td></tr>
+              <tr><td class="n2">2</td><td>El recurso requiere conexión de banda ancha estable; en conexiones lentas pierde funcionalidades clave o se torna inutilizable.</td></tr>
+              <tr><td class="n1">1</td><td>El recurso requiere conexión de alta velocidad; presenta funcionalidades que no operan en entornos de conectividad limitada; no existe alternativa de acceso sin conexión.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-header" style="background:#7b4f00;">I.3.2 — Requisitos técnicos del dispositivo y consumo de recursos de hardware</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>El recurso funciona correctamente en dispositivos con especificaciones mínimas (procesador básico, 1–2 GB RAM) y en teléfonos inteligentes de gama económica; no requiere plugins, aplicaciones adicionales ni actualizaciones específicas del sistema.</td></tr>
+              <tr><td class="n4">4</td><td>El recurso funciona en dispositivos de gama baja con alguna limitación menor de visualización; no requiere instalaciones adicionales significativas.</td></tr>
+              <tr><td class="n3">3</td><td>El recurso requiere un dispositivo de gama media o un navegador relativamente actualizado; puede funcionar en equipos básicos con rendimiento reducido.</td></tr>
+              <tr><td class="n2">2</td><td>El recurso requiere equipos de gama media-alta o la instalación de software adicional; en equipos básicos presenta problemas funcionales notables.</td></tr>
+              <tr><td class="n1">1</td><td>El recurso requiere equipos de alto rendimiento o software especializado; es inaccesible para usuarios con equipos estándar de bajo costo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-header" style="background:#7b4f00;">I.3.3 — Compatibilidad con el parque tecnológico de la institución</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>Se ha verificado el funcionamiento del recurso en los navegadores y dispositivos disponibles en la institución; los resultados son satisfactorios sin necesidad de configuraciones especiales.</td></tr>
+              <tr><td class="n4">4</td><td>Se ha verificado el funcionamiento en la mayoría de los dispositivos institucionales; alguno requiere una configuración menor o presenta limitaciones de visualización que no afectan la usabilidad.</td></tr>
+              <tr><td class="n3">3</td><td>Se ha verificado el funcionamiento en algunos dispositivos institucionales; en otros no se realizó verificación; el funcionamiento teórico es plausible dadas las especificaciones conocidas.</td></tr>
+              <tr><td class="n2">2</td><td>La verificación fue parcial o los resultados mostraron problemas significativos de compatibilidad en los dispositivos disponibles.</td></tr>
+              <tr><td class="n1">1</td><td>El recurso no es compatible con los dispositivos disponibles en la institución, o no se pudo realizar verificación alguna por falta de acceso a los equipos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D4 -->
+  <div class="accordion">
+    <button class="acc-header" onclick="toggleAcc(this)">
+      <span><span class="dim-badge d4" style="margin-right:8px;">D4</span> Ética, Seguridad y Transparencia — Peso: 15 %</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body open">
+      <div class="ind-card">
+        <div class="ind-header" style="background:#6a1c2e;">I.4.1 — Condiciones de acceso real y gratuidad del contenido evaluado</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>Todo el contenido evaluado es accesible de forma gratuita y sin registro; no existen barreras de acceso (paywalls, suscripciones, cuentas premium) para las secciones específicamente evaluadas.</td></tr>
+              <tr><td class="n4">4</td><td>El contenido evaluado es gratuito, pero requiere registro o creación de cuenta que no involucra pago; las condiciones de registro son claras y transparentes.</td></tr>
+              <tr><td class="n3">3</td><td>La mayor parte del contenido evaluado es gratuita, pero algunas funcionalidades complementarias (proyectos, cuestionarios, certificados) requieren suscripción de pago; la frontera gratuito/pago está claramente señalada.</td></tr>
+              <tr><td class="n2">2</td><td>Una porción significativa del contenido o las funcionalidades evaluadas requiere suscripción de pago; la frontera gratuito/pago no está claramente señalada.</td></tr>
+              <tr><td class="n1">1</td><td>El contenido de interés está completamente detrás de un muro de pago; el acceso gratuito es mínimo o testimonial.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-header" style="background:#6a1c2e;">I.4.2 — Privacidad de menores, política de datos y requisitos de registro</div>
+        <div class="ind-body">
+          <div class="alert-box" style="margin-bottom:10px;"><strong>⚠ Criterio de descalificación:</strong> Una puntuación de 1 en este indicador activa una alerta de uso no recomendado independientemente del puntaje total, dado que la protección de datos de menores es una exigencia legal no compensable por la calidad pedagógica del recurso.</div>
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>No se requiere registro para acceder al contenido evaluado; no se recopilan datos personales; la política de privacidad es clara, accesible y compatible con la normativa de protección de datos de menores.</td></tr>
+              <tr><td class="n4">4</td><td>Se requiere registro básico (correo electrónico), pero la política de privacidad es clara, no requiere datos sensibles de menores y permite el uso supervisado por el docente.</td></tr>
+              <tr><td class="n3">3</td><td>Se requiere registro con datos personales; la política de privacidad existe y es accesible, pero contiene cláusulas ambiguas respecto al uso de datos de menores; se recomienda supervisión docente y autorización parental.</td></tr>
+              <tr><td class="n2">2</td><td>Se requiere registro con datos personales; la política de privacidad es genérica o difícilmente accesible; no se hace referencia explícita a usuarios menores de edad.</td></tr>
+              <tr><td class="n1">1</td><td>Se requiere registro con datos sensibles; no existe política de privacidad clara o el recurso no está diseñado para ser utilizado por menores de edad.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ind-card">
+        <div class="ind-header" style="background:#6a1c2e;">I.4.3 — Transparencia editorial, publicidad y credibilidad institucional</div>
+        <div class="ind-body">
+          <table class="desc-table">
+            <thead><tr><th>Nivel</th><th>Descriptor operativo</th></tr></thead>
+            <tbody>
+              <tr><td class="n5">5</td><td>La autoría, la institución responsable, las fuentes de financiación y los criterios de actualización del contenido son explícitos y verificables; no existe publicidad dentro del entorno de aprendizaje; no hay mezcla de información educativa con contenido comercial.</td></tr>
+              <tr><td class="n4">4</td><td>La información institucional es clara; existe publicidad no intrusiva (banners externos) que no interfiere con el entorno de aprendizaje; no hay contenido comercial integrado en las lecciones.</td></tr>
+              <tr><td class="n3">3</td><td>La información institucional es accesible pero no prominente; la publicidad es visible aunque no interrumpe el flujo de aprendizaje; hay algunas referencias a servicios de pago dentro del entorno educativo.</td></tr>
+              <tr><td class="n2">2</td><td>La información institucional es difícil de localizar; la publicidad interfiere con el entorno de aprendizaje; las referencias a servicios de pago son frecuentes dentro de las lecciones.</td></tr>
+              <tr><td class="n1">1</td><td>La autoría es desconocida o no verificable; la publicidad es invasiva o el recurso promueve servicios de pago de forma activa dentro del contenido educativo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOQUE 8: METODOLOGÍA -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">8</div>
+    <div class="sec-title">Metodología — Procedimiento de aplicación del instrumento ECO-RED Normalista</div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><strong>Selección del alcance de evaluación:</strong> Definir explícitamente la sección o módulo del RED que se va a evaluar (no el recurso en su totalidad si es un sistema grande). Registrar la URL exacta, la fecha y la versión o estado del recurso en el momento de la revisión.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><strong>Revisión sistemática por indicador:</strong> Para cada uno de los 12 indicadores, revisar el recurso en la sección delimitada, contrastar con los descriptores de nivel y seleccionar el nivel entero correspondiente (1–5). Registrar la evidencia específica (captura de pantalla, URL de la sección revisada, observación directa o dato de especificación técnica) que justifica la puntuación asignada.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><strong>Registro de criterios no aplicables (NA):</strong> Si un indicador no puede evaluarse —por falta de acceso a los equipos institucionales, por insuficiencia de información disponible públicamente, o porque el criterio es genuinamente irrelevante para el recurso— se registra NA con justificación obligatoria. El indicador se excluye del promedio de su dimensión.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><strong>Cálculo del puntaje dimensional:</strong> Para cada dimensión, el puntaje es la <em>media aritmética</em> de los indicadores evaluados (no NA) en esa dimensión.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body"><strong>Cálculo del puntaje total ponderado:</strong> Aplicar la fórmula: <em>ECO-RED = (D1 × 0,35) + (D2 × 0,25) + (D3 × 0,25) + (D4 × 0,15)</em>.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body"><strong>Interpretación del resultado:</strong> Ubicar el puntaje obtenido en la tabla de rangos de interpretación (4,50–5,00: altamente recomendable; 3,50–4,49: recomendable con condiciones; 2,50–3,49: condicionalmente útil; 1,50–2,49: no recomendado; 1,00–1,49: inadecuado).</div>
+    </div>
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-body"><strong>Nota sobre criterio de descalificación:</strong> Una puntuación de 1 en el indicador I.4.2 (privacidad de menores) activa una alerta de uso no recomendado independientemente del puntaje total, dado que la protección de datos de menores es una exigencia legal no compensable por la calidad pedagógica del recurso.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOQUE 9: REFERENCIAS -->
+<section>
+  <div class="sec-header">
+    <div class="sec-num">9</div>
+    <div class="sec-title">Referencias bibliográficas</div>
+  </div>
+  <p style="font-size:0.88rem;color:var(--nota);margin-bottom:16px;">Normas APA 7.ª edición · Orden alfabético estricto · Sangría francesa</p>
+  <ul class="ref-list">
+    <li>Area Moreira, M. (2010). El proceso de integración y uso pedagógico de las TIC en los centros educativos. Un estudio de casos. <em>Revista de Educación</em>, <em>352</em>, 77–97.</li>
+    <li>Fernández-Pampillón Cesteros, A. M., Domínguez Romero, E., &amp; De Armas Ranero, I. (2011). <em>Herramienta para la revisión de la Calidad de Objetos de Aprendizaje Universitarios (COdA): guía del usuario (v. 1.1)</em>. Universidad Complutense de Madrid. https://eprints.ucm.es/12533/</li>
+    <li>García-Barrera, A. (2016). Las necesidades educativas desde una perspectiva docente: análisis de la situación en un centro de educación primaria. <em>Revista Educación, Política y Sociedad</em>, <em>1</em>(2), 7–27.</li>
+    <li>Ministerio de Educación Nacional. (2008). <em>Orientaciones generales para la educación en tecnología: Ser competente en tecnología, ¡una necesidad para el desarrollo!</em> MEN. https://www.mineducacion.gov.co/1621/articles-160915_archivo_pdf.pdf</li>
+    <li>Ministerio de Tecnologías de la Información y las Comunicaciones &amp; British Council. (2023). <em>Colombia Programa: pensamiento computacional y programación en las aulas</em>. MinTIC. https://www.britishcouncil.co/sistemas-educativos/colegios/colombia-programa</li>
+    <li>Nesbit, J. C., Belfer, K., &amp; Leacock, T. (2003). <em>Learning Object Review Instrument (LORI)</em>. E-Learning Research and Assessment Network. https://www.academia.edu/7927907/Learning_Object_Review_Instrument_LORI_</li>
+    <li>Wiley, D. A. (2000). Connecting learning objects to instructional design theory: A definition, a metaphor, and a taxonomy. En D. A. Wiley (Ed.), <em>The instructional use of learning objects: Online version</em>. Agency for Instructional Technology. http://reusability.org/read/chapters/wiley.doc</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  William Darío Gómez Vega &nbsp;|&nbsp; Especialización en Aplicación de TIC para la Enseñanza &nbsp;|&nbsp; CVUDES — Universidad de Santander &nbsp;|&nbsp; 2026
+</footer>
+
+<script>
+function toggleAcc(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>
